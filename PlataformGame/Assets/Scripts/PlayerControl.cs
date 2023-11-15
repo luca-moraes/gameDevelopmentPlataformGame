@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
-  public KeyCode moveUp = KeyCode.W;
-  public KeyCode moveDown = KeyCode.S;
-  public KeyCode shoot = KeyCode.Space;
+  public KeyCode moveLeft = KeyCode.A;
+  public KeyCode moveRight = KeyCode.S;
+  public KeyCode jump = KeyCode.Space;
+  public KeyCode shoot = KeyCode.Return;
+
   public float speed = 10.0f;
   public float boundY = 4.0f;
+  public float boundX = 10.0f;
+
   private Rigidbody2D rb2d;
-  public GameObject spirou;
+  public GameObject dagacris;
 
   	void OnCollisionEnter2D(Collision2D coll) {
     	if(coll.collider.CompareTag("alek") 
@@ -38,17 +42,21 @@ public class PlayerControl : MonoBehaviour
 	if(Input.GetKeyDown(shoot)){
 		var psc = transform.position;
 		psc.x += 0.5f;
-		Instantiate(spirou, psc, Quaternion.identity);
+		Instantiate(dagacris, psc, Quaternion.identity);
 	}
 
-    if (Input.GetKey(moveUp)) {
+    if(Input.GetKey(moveLeft)) {
+		vel.x = -speed;
+	}
+	else if(Input.GetKey(moveRight)) {
+		vel.x = speed;
+	}
+	else if(Input.GetKey(jump)){
 		vel.y = speed;
 	}
-	else if (Input.GetKey(moveDown)) {
-		vel.y = -speed;
-	}
 	else {
-		vel.y = 0;
+		vel.y = -(speed/5);
+		vel.x = 0;
 	}
 
 	rb2d.velocity = vel;
@@ -59,6 +67,13 @@ public class PlayerControl : MonoBehaviour
 	}
 	else if (pos.y < -boundY) {
 		pos.y = -boundY;
+	}
+
+	if (pos.y > boundX) {
+		pos.y = boundX;
+	}
+	else if (pos.y < -boundX) {
+		pos.y = -boundX;
 	}
 
     transform.position = pos;
