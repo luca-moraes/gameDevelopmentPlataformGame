@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 7706224382486051457}
   - component: {fileID: 8831247455390518325}
   m_Layer: 0
-  m_Name: attackBlade
-  m_TagString: Untagged
+  m_Name: attackBladeNeg
+  m_TagString: emperorsBlade
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -171,3 +171,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5e37e83b6fbcc3adb6a69406662ae88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipoAtaque: 1

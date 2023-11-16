@@ -16,7 +16,18 @@ public class EnemyPatrol : MonoBehaviour
   public bool _moveRight = true;
   public GameObject sardaukarBlade;
   public GameObject negSardaukarBlade;
+  public GameObject deathAnimation;
 
+
+  void OnCollisionEnter2D(Collision2D coll) {
+    if(coll.collider.CompareTag("dagacris"))
+    {
+      var psc = transform.position;
+      psc.y -= 0.25f;
+      Instantiate(deathAnimation, psc, Quaternion.identity);
+      Destroy(gameObject);
+    } 
+  }
 
   public void Awake()
   {

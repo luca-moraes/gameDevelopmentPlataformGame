@@ -8,6 +8,9 @@ TagManager:
   - enemy
   - zoio1
   - limit
+  - dagacris
+  - emperorsBlade
+  - melange
   layers:
   - Default
   - TransparentFX

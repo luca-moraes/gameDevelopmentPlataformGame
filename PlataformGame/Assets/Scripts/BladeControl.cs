@@ -5,15 +5,22 @@ using UnityEngine;
 public class BladeControl : MonoBehaviour
 {
   private float speed = 4.0f;
+  public int tipoAtaque = 0;
   private Rigidbody2D rb2d;
 
-  void OnColiderEnter2D(Collision2D coll) {
-    if(coll.collider.CompareTag("limit"))
-    {
-      Destroy(gameObject);
-    } 
+  void OnCollisionEnter2D(Collision2D coll) {
+    if(tipoAtaque == 0){
+      if(coll.collider.CompareTag("enemy"))
+      {
+        Destroy(gameObject);
+      } 
+    }else if(tipoAtaque == 1){
+      if(coll.collider.CompareTag("Player"))
+      {
+        Destroy(gameObject);
+      } 
+    }
   }
-
 
   void Start()
   {

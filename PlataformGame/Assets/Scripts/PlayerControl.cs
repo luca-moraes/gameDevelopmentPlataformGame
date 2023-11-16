@@ -16,23 +16,23 @@ public class PlayerControl : MonoBehaviour
   private Rigidbody2D rb2d;
   public GameObject dagacris;
   public GameObject negDagacris;
+  private Animator animator;
 
-  	void OnCollisionEnter2D(Collision2D coll) {
-    	if(coll.collider.CompareTag("alek") 
-        || coll.collider.CompareTag("zoio1")
-        || coll.collider.CompareTag("zoio2")
-        || coll.collider.CompareTag("zoio3")
-        || coll.collider.CompareTag("cigarro")
-        || coll.collider.CompareTag("marreta"))
-		{
-            GameManager gameManager = FindObjectOfType<GameManager>();
-            gameManager.hit();
-    	}
-    }
+  void OnCollisionEnter2D(Collision2D coll) {
+	GameManager gameManager = FindObjectOfType<GameManager>();
+
+    if(coll.collider.CompareTag("emperorsBlade"))
+    {
+		//gameManager.hit();
+    }else if(coll.collider.CompareTag("melange")){
+		//gameManager.hit();
+	}
+  }
 
   void Start()
   {
     rb2d = GetComponent<Rigidbody2D>();   
+	animator = GetComponent<Animator>();
 	boundY = 4.0f; 
   }
 

@@ -12,11 +12,6 @@ public class GameManager : MonoBehaviour
     private GUIStyle guiStyleEnd = new GUIStyle();
     private GUIStyle guiStyleSma = new GUIStyle();
     private GUIStyle guiStylePrd = new GUIStyle();
-    public GameObject alek;
-    public GameObject zoio1;
-    public GameObject zoio2;
-    public GameObject zoio3;
-    public int nivelZoio = 1;
     private bool venceu = false;
     private bool perdeu = false;
 
@@ -243,34 +238,8 @@ public class GameManager : MonoBehaviour
                 GUI.Label(new Rect(Screen.width / 2 - 250, Screen.height / 2 - 50, 900, 100), "Voce fracassou em impedir a trollada final de Zoio!\n Por sua culpa a terra e toda a humanidade foi destruida!", guiStylePrd);
                 Invoke("derrotado", 5.0f);
             }
-        
-
         }
 	}
-
-    public void chamarAlek(){
-        Instantiate(alek, new Vector3(22, 0, 0), Quaternion.identity);
-        enemyOnScreen = true;
-    }
-
-    public void chamarZoio(){
-        switch(nivelZoio){
-            case 1:
-                Instantiate(zoio1, new Vector3(22, 0, 0), Quaternion.identity);
-                nivelZoio = 2;
-                break;
-            case 2:
-                Instantiate(zoio2, new Vector3(22, 0, 0), Quaternion.identity);
-                nivelZoio = 3;
-                break;
-            case 3:
-                Instantiate(zoio3, new Vector3(22, 0, 0), Quaternion.identity);
-                nivelZoio = 0;
-            break;
-        }
-
-        enemyOnScreen = true;
-    }
 
     public void derrotado(){
         SceneManager.LoadScene("perda");
@@ -282,7 +251,6 @@ public class GameManager : MonoBehaviour
 
     private void restartGameManager(){
         ScoreManager.resetPontuacoes();
-        nivelZoio = 1;
         enemyOnScreen = false;
         venceu = false;
         perdeu = false;
