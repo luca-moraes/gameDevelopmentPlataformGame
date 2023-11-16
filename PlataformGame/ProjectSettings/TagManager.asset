@@ -6,6 +6,8 @@ TagManager:
   tags:
   - shield
   - enemy
+  - zoio1
+  - limit
   layers:
   - Default
   - TransparentFX
