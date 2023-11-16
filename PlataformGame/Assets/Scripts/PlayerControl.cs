@@ -12,6 +12,7 @@ public class PlayerControl : MonoBehaviour
   public float speed = 10.0f;
   public float boundY = 4.0f;
   public float boundX = 10.0f;
+  private float direction = 0.0f;
 
   private Rigidbody2D rb2d;
   public GameObject dagacris;
@@ -47,15 +48,17 @@ public class PlayerControl : MonoBehaviour
 
     if(Input.GetKey(moveLeft)) {
 		vel.x = -speed;
+		direction = 180.0f;
 	}
 	else if(Input.GetKey(moveRight)) {
 		vel.x = speed;
+		direction = 0.0f;
 	}
 	else if(Input.GetKey(jump)){
-		vel.y = speed;
+		vel.y = speed*1.1f;
 	}
 	else {
-		vel.y = -(speed/5);
+		vel.y = -(speed/4);
 		vel.x = 0;
 	}
 
@@ -77,5 +80,6 @@ public class PlayerControl : MonoBehaviour
 	}
 
     transform.position = pos;
+	transform.rotation = Quaternion.Euler(new Vector3(0,direction,0));
   }
 }
