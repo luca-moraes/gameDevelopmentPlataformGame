@@ -11,8 +11,12 @@ public class EnemyPatrol : MonoBehaviour
   private float _endPos;
   public float boundY = 4.0f;
   public float boundX = 10.0f;
+  private bool shoot = false;
 
   public bool _moveRight = true;
+  public GameObject sardaukarBlade;
+  public GameObject negSardaukarBlade;
+
 
   public void Awake()
   {
@@ -20,10 +24,31 @@ public class EnemyPatrol : MonoBehaviour
     _startPos = transform.position.x;
     _endPos = _startPos + UnitsToMove;
     _isFacingRight = transform.localScale.x > 0;
+
+    Invoke("lancarFaca", 1.5f);
+  }
+
+  private void lancarFaca(){
+    var psc = transform.position;
+
+    if(_moveRight){
+			psc.x += 0.5f;
+			Instantiate(sardaukarBlade, psc, Quaternion.identity);
+		}else{
+			psc.x -= 0.5f;
+			Instantiate(negSardaukarBlade, psc, Quaternion.identity);
+		}
+
+    shoot = true;
   }
 
   public void Update()
   {
+    if(shoot){
+      shoot = false;
+      Invoke("lancarFaca", 2.5f);
+    }
+
     transform.rotation = Quaternion.Euler(new Vector3(0,0,0));
 
     var pos = transform.position;
@@ -60,6 +85,7 @@ public class EnemyPatrol : MonoBehaviour
       if (_isFacingRight)
         Flip();
     }
+
     if (enemyRigidBody2D.position.x <= _startPos)
       _moveRight = true;
   }

@@ -13,9 +13,9 @@ public class PlayerControl : MonoBehaviour
   public float boundY = 4.0f;
   public float boundX = 10.0f;
   private float direction = 0.0f;
-
   private Rigidbody2D rb2d;
   public GameObject dagacris;
+  public GameObject negDagacris;
 
   	void OnCollisionEnter2D(Collision2D coll) {
     	if(coll.collider.CompareTag("alek") 
@@ -42,8 +42,14 @@ public class PlayerControl : MonoBehaviour
 
 	if(Input.GetKeyDown(shoot)){
 		var psc = transform.position;
-		psc.x += 0.5f;
-		Instantiate(dagacris, psc, Quaternion.identity);
+
+		if(direction == 0.0f){
+			psc.x += 0.5f;
+			Instantiate(dagacris, psc, Quaternion.identity);
+		}else if(direction == 180.0f){
+			psc.x -= 0.5f;
+			Instantiate(negDagacris, psc, Quaternion.identity);
+		}
 	}
 
     if(Input.GetKey(moveLeft)) {

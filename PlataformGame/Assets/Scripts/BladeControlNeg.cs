@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BladeControl : MonoBehaviour
+public class BladeControlNeg : MonoBehaviour
 {
   private float speed = 4.0f;
   private Rigidbody2D rb2d;
@@ -24,7 +24,7 @@ public class BladeControl : MonoBehaviour
   {
     var vel = rb2d.velocity;
 
-    vel.x = speed;
+    vel.x = -speed;
 
     rb2d.velocity = vel;
     var pos = transform.position;
@@ -34,6 +34,6 @@ public class BladeControl : MonoBehaviour
     }
 
     transform.position = pos;
-    transform.rotation = Quaternion.Euler(new Vector3(0,0,-45));
+    transform.rotation = Quaternion.Euler(new Vector3(0,0,135));
   }
 }
