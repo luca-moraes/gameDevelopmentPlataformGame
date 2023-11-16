@@ -42,11 +42,14 @@
   <ItemGroup>
      <Compile Include="Assets/Scripts/ExplosaoControl.cs" />
      <Compile Include="Assets/Scripts/ScoreManager.cs" />
+     <Compile Include="Assets/Scripts/SpiceControl.cs" />
      <Compile Include="Assets/Scripts/Pontuacao.cs" />
+     <Compile Include="Assets/Scripts/ShieldControl.cs" />
      <Compile Include="Assets/Scripts/GameManager.cs" />
      <Compile Include="Assets/Scripts/ProjetilControl.cs" />
      <Compile Include="Assets/Scripts/Paralax.cs" />
      <Compile Include="Assets/Scripts/PlayerControl.cs" />
+     <Compile Include="Assets/Scripts/WaterLifeControl.cs" />
      <Compile Include="Assets/Scripts/EnemyControl.cs" />
      <Compile Include="Assets/Scripts/CameraController.cs" />
     <Reference Include="UnityEngine">
