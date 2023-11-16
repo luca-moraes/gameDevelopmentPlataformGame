@@ -739,7 +739,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UnitsToMove: 1.3
-  EnemySpeed: 200
+  EnemySpeed: 160
   _isFacingRight: 0
   boundY: 4
   boundX: 10
@@ -2528,8 +2528,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c963d45557b52e9098af5ee0e6e56e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UnitsToMove: 1.1
-  EnemySpeed: 190
+  UnitsToMove: 1
+  EnemySpeed: 160
   _isFacingRight: 0
   boundY: 4
   boundX: 10

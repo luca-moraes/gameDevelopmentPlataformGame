@@ -8,9 +8,8 @@ public class BladeControl : MonoBehaviour
   private Rigidbody2D rb2d;
 
 
-  void OnCollisionEnter2D(Collision2D coll) {
-    if(coll.collider.CompareTag("cigarro") 
-      || coll.collider.CompareTag("limit"))
+  void OnColiderEnter2D(Collision2D coll) {
+    if(coll.collider.CompareTag("limit"))
     {
       Destroy(gameObject);
    } 
