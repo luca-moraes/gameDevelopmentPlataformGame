@@ -9,6 +9,8 @@ public class EnemyPatrol : MonoBehaviour
   public bool _isFacingRight;
   private float _startPos;
   private float _endPos;
+  public float boundY = 4.0f;
+  public float boundX = 10.0f;
 
   public bool _moveRight = true;
 
@@ -23,7 +25,25 @@ public class EnemyPatrol : MonoBehaviour
   public void Update()
   {
     transform.rotation = Quaternion.Euler(new Vector3(0,0,0));
-    
+
+    var pos = transform.position;
+
+    if (pos.y > boundY) {
+      pos.y = boundY;
+    }
+    else if (pos.y < -boundY) {
+      pos.y = -boundY;
+    }
+
+    if (pos.y > boundX) {
+      pos.y = boundX;
+    }
+    else if (pos.y < -boundX) {
+      pos.y = -boundX;
+    }
+
+    transform.position = pos;
+
     if (_moveRight)
     {
       enemyRigidBody2D.AddForce(Vector2.right * EnemySpeed * Time.deltaTime);
