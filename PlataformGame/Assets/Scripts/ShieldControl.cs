@@ -6,10 +6,10 @@ public class ShieldControl : MonoBehaviour
 {
 
   void OnCollisionEnter2D(Collision2D coll) {
-    if(coll.collider.CompareTag("Player"))
-    {
-      Destroy(gameObject);
-    }
+  }
+
+  public void removeShield(){
+    Destroy(gameObject);
   }
 
   void Start()

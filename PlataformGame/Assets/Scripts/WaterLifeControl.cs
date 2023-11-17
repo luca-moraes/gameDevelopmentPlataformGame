@@ -8,6 +8,9 @@ public class WaterLifeControl : MonoBehaviour
   void OnCollisionEnter2D(Collision2D coll) {
     if(coll.collider.CompareTag("Player"))
     {
+      GameManager gameManager = FindObjectOfType<GameManager>();
+      gameManager.venceu();
+
       Destroy(gameObject);
     }
   }

@@ -10,7 +10,7 @@ public class SpiceControl : MonoBehaviour
 
     if(coll.collider.CompareTag("Player"))
     {
-		//gameManager.hit();
+		  gameManager.caleche();
       Destroy(gameObject);
     }
   }

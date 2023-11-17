@@ -24,18 +24,24 @@ public class PlayerControl : MonoBehaviour
 
     if(coll.collider.CompareTag("emperorsBlade"))
     {
-		//gameManager.hit();
-    }else if(coll.collider.CompareTag("melange")){
+		gameManager.perdeu();
+
+		var psc = transform.position;
+		Instantiate(paulDefetead, psc, Quaternion.identity);
+		Destroy(gameObject);
+
+    }
+	// else if(coll.collider.CompareTag("melange")){
 		// gameManager.hit();
 		// animator.SetBool("correndo", false);
 		// animator.SetBool("pulando", false);
 		// animator.SetBool("parado", false);
 		// animator.SetBool("morreu", true);
 		
-		var psc = transform.position;
-		Instantiate(paulDefetead, psc, Quaternion.identity);
-		Destroy(gameObject);
-	}
+		// var psc = transform.position;
+		// Instantiate(paulDefetead, psc, Quaternion.identity);
+		// Destroy(gameObject);
+	// }
   }
 
   void Start()

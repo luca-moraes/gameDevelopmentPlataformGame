@@ -6,11 +6,11 @@ TagManager:
   tags:
   - shield
   - enemy
-  - zoio1
   - limit
   - dagacris
   - emperorsBlade
   - melange
+  - water
   layers:
   - Default
   - TransparentFX
