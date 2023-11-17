@@ -1922,7 +1922,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1523191578}
   - component: {fileID: 1523191579}
-  - component: {fileID: 1523191580}
   m_Layer: 0
   m_Name: parallax-space-backgound
   m_TagString: Untagged
@@ -1997,27 +1996,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &1523191580
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1523191577}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4e49d34b843029c82b56595813e14a22, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1543293600
 GameObject:
   m_ObjectHideFlags: 0
@@ -2235,7 +2213,7 @@ Animator:
   m_GameObject: {fileID: 1734803612}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1bd4a48dfcca6f8449d0ac92ea4d046c, type: 2}
+  m_Controller: {fileID: 9100000, guid: b025fe77cfc84228c99e3a3cce935790, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2334,6 +2312,7 @@ MonoBehaviour:
   boundX: 10
   dagacris: {fileID: 4117100729396076948, guid: 73b325879dd0cf1f194bca9229230721, type: 3}
   negDagacris: {fileID: 6344107599629999779, guid: ce9073b73fed0f5d48a528cddff72f89, type: 3}
+  paulDefetead: {fileID: 7144148311940467516, guid: 76faf81b4049e955ab6ea591b04baa4a, type: 3}
 --- !u!61 &1734803618
 BoxCollider2D:
   m_ObjectHideFlags: 0

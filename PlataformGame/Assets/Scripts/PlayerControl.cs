@@ -16,6 +16,7 @@ public class PlayerControl : MonoBehaviour
   private Rigidbody2D rb2d;
   public GameObject dagacris;
   public GameObject negDagacris;
+  public GameObject paulDefetead;
   private Animator animator;
 
   void OnCollisionEnter2D(Collision2D coll) {
@@ -25,7 +26,15 @@ public class PlayerControl : MonoBehaviour
     {
 		//gameManager.hit();
     }else if(coll.collider.CompareTag("melange")){
-		//gameManager.hit();
+		// gameManager.hit();
+		// animator.SetBool("correndo", false);
+		// animator.SetBool("pulando", false);
+		// animator.SetBool("parado", false);
+		// animator.SetBool("morreu", true);
+		
+		var psc = transform.position;
+		Instantiate(paulDefetead, psc, Quaternion.identity);
+		Destroy(gameObject);
 	}
   }
 
@@ -33,6 +42,7 @@ public class PlayerControl : MonoBehaviour
   {
     rb2d = GetComponent<Rigidbody2D>();   
 	animator = GetComponent<Animator>();
+	animator.SetBool("morreu", false);
 	boundY = 4.0f; 
   }
 
@@ -55,17 +65,33 @@ public class PlayerControl : MonoBehaviour
     if(Input.GetKey(moveLeft)) {
 		vel.x = -speed;
 		direction = 180.0f;
+
+		animator.SetBool("correndo", true);
+		animator.SetBool("pulando", false);
+		animator.SetBool("parado", false);
 	}
 	else if(Input.GetKey(moveRight)) {
 		vel.x = speed;
 		direction = 0.0f;
+
+		animator.SetBool("correndo", true);
+		animator.SetBool("pulando", false);
+		animator.SetBool("parado", false);
 	}
 	else if(Input.GetKey(jump)){
 		vel.y = speed*1.1f;
+
+		animator.SetBool("correndo", false);
+		animator.SetBool("pulando", true);
+		animator.SetBool("parado", false);
 	}
 	else {
 		vel.y = -(speed/4);
 		vel.x = 0;
+
+		animator.SetBool("correndo", false);
+		animator.SetBool("pulando", false);
+		animator.SetBool("parado", true);
 	}
 
 	rb2d.velocity = vel;
