@@ -54,13 +54,28 @@ public class GameManager : MonoBehaviour
 			{
 				Application.Quit();
 			}
-		}else{
+
+            if(SceneManager.GetActiveScene().name == "vitoria"){
+                GUI.Label(new Rect(22, Screen.height-6 - 22, 180, 24)," -=- Vitória -=- ", guiStylePts);
+            }else{
+                GUI.Label(new Rect(22, Screen.height-6 - 22, 180, 24)," -=- Derrota -=- ", guiStylePts);
+            }
+		}
+        else if(videosCenas())
+        {
+            if(GUI.Button(new Rect(Screen.width - 90, Screen.height - 26, 80, 22), "Pular"))
+			{
+                Invoke("changeScene", 0.5f);
+			}
+        }
+        else
+        {
             showPlacar();
 
             if(GUI.Button(new Rect(Screen.width - 150, Screen.height - 26, 140, 22), "Restart Fase"))
 			{
-                Invoke("changeScene", 1.0f);
-                // reloadSceneCheckpoint();	
+                reloadSceneCheckpoint();	
+                // Invoke("changeScene", 1.0f);
 			}
         }
 	}
@@ -127,20 +142,54 @@ public class GameManager : MonoBehaviour
         shaihulud = true;
     }
 
+    private bool videosCenas(){
+		if(SceneManager.GetActiveScene().name == "abertura"
+        || SceneManager.GetActiveScene().name == "intro"
+        || SceneManager.GetActiveScene().name == "end"
+        || SceneManager.GetActiveScene().name == "video1"
+        || SceneManager.GetActiveScene().name == "video2"
+        || SceneManager.GetActiveScene().name == "video3"
+        || SceneManager.GetActiveScene().name == "video4"
+        || SceneManager.GetActiveScene().name == "video5"
+        || SceneManager.GetActiveScene().name == "video6"
+        || SceneManager.GetActiveScene().name == "video7"
+        || SceneManager.GetActiveScene().name == "video8"
+        || SceneManager.GetActiveScene().name == "video9")
+        {
+			return true;
+        }
+		else
+		{
+			return false;
+		}
+	}
+
     void Start()
     {
-        fases.Add("menu", "fase1");
-        fases.Add("derrota", "menu");
-        fases.Add("vitoria", "menu");
-        fases.Add("fase1", "fase2");
-        fases.Add("fase2", "fase3");
-        fases.Add("fase3", "fase4");
-        fases.Add("fase4", "fase5");
-        fases.Add("fase5", "fase6");
-        fases.Add("fase6", "fase7");
-        fases.Add("fase7", "fase8");
-        fases.Add("fase8", "fase9");
-        fases.Add("fase9", "fase10");
+        fases.Add("abertura", "menu");
+        fases.Add("menu", "intro");
+        fases.Add("derrota", "end");
+        fases.Add("vitoria", "end");
+        fases.Add("end", "menu");
+        fases.Add("intro", "fase1");
+        fases.Add("fase1", "video1");
+        fases.Add("video1", "fase2");
+        fases.Add("fase2", "video2");
+        fases.Add("video2", "fase3");
+        fases.Add("fase3", "video3");
+        fases.Add("video3", "fase4");
+        fases.Add("fase4", "video4");
+        fases.Add("video4", "fase5");
+        fases.Add("fase5", "video5");
+        fases.Add("video5", "fase6");
+        fases.Add("fase6", "video6");
+        fases.Add("video6", "fase7");
+        fases.Add("fase7", "video7");
+        fases.Add("video7", "fase8");
+        fases.Add("fase8", "video8");
+        fases.Add("video8", "fase9");
+        fases.Add("fase9", "video9");
+        fases.Add("video9", "fase10");
 
         spice = GameObject.FindGameObjectWithTag("melange");
         shield = GameObject.FindGameObjectWithTag("shield");
