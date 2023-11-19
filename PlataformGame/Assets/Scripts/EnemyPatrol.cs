@@ -71,11 +71,11 @@ public class EnemyPatrol : MonoBehaviour
       pos.y = -boundY;
     }
 
-    if (pos.y > boundX) {
-      pos.y = boundX;
+    if (pos.x > boundX) {
+      pos.x = boundX;
     }
-    else if (pos.y < -boundX) {
-      pos.y = -boundX;
+    else if (pos.x < -boundX) {
+      pos.x = -boundX;
     }
 
     transform.position = pos;

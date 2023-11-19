@@ -41,11 +41,10 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets/Scripts/DeathControl.cs" />
+     <Compile Include="Assets/Scripts/FremenManager.cs" />
      <Compile Include="Assets/Scripts/ExplosaoControl.cs" />
      <Compile Include="Assets/Scripts/BladeControl.cs" />
-     <Compile Include="Assets/Scripts/ScoreManager.cs" />
      <Compile Include="Assets/Scripts/SpiceControl.cs" />
-     <Compile Include="Assets/Scripts/Pontuacao.cs" />
      <Compile Include="Assets/Scripts/ShieldControl.cs" />
      <Compile Include="Assets/Scripts/BladeControlNeg.cs" />
      <Compile Include="Assets/Scripts/GameManager.cs" />
@@ -54,6 +53,7 @@
      <Compile Include="Assets/Scripts/WaterLifeControl.cs" />
      <Compile Include="Assets/Scripts/CameraController.cs" />
      <Compile Include="Assets/Scripts/EnemyPatrol.cs" />
+     <Compile Include="Assets/Scripts/SpaceGuild.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/home/eu/Unity/Hub/Editor/2022.3.8f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

@@ -17,4 +17,31 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/vitoria.unity
     guid: b3d580a1d1fd2eb13a64d7442121d4d9
+  - enabled: 1
+    path: Assets/Scenes/fase2.unity
+    guid: 226d1b2890df902cb8ee605c92878bbf
+  - enabled: 1
+    path: Assets/Scenes/fase3.unity
+    guid: ab1a4b7f0fbe8da76922a5884ca7b10b
+  - enabled: 1
+    path: Assets/Scenes/fase4.unity
+    guid: c04a0f2e9c45acf54b18fd60136197d6
+  - enabled: 1
+    path: Assets/Scenes/fase5.unity
+    guid: 65f0eca0ade7fa70abb818df562cce85
+  - enabled: 1
+    path: Assets/Scenes/fase6.unity
+    guid: 192c22221a1370e508bbc2faa2bbde19
+  - enabled: 1
+    path: Assets/Scenes/fase7.unity
+    guid: cc5dfe5a9e27202c2972e380499f6f4f
+  - enabled: 1
+    path: Assets/Scenes/fase8.unity
+    guid: 3731c6f2d49b82efda515d70a567ca44
+  - enabled: 1
+    path: Assets/Scenes/fase9.unity
+    guid: 732041b09c03d40b0952c9f1fde95a83
+  - enabled: 1
+    path: Assets/Scenes/fase10.unity
+    guid: 119442d0eb3356960830417ac4e62fda
   m_configObjects: {}

@@ -12,6 +12,23 @@ public class GameManager : MonoBehaviour
 	GameObject shield;
 	GameObject[] sardaukars;
     private bool shaihulud = false;
+    private GUIStyle guiStylePts = new GUIStyle();
+
+
+    private void setPtsStyle(){
+		guiStylePts.fontSize = 22;
+		guiStylePts.normal.textColor = new Color(237.0f/255.0f, 145.0f/255.0f, 33.0f/255.0f, 1.0f);
+
+		Texture2D debugTex = new Texture2D(1,1);
+	  	debugTex.SetPixel(0,0, new Color(195.0f/255.0f, 88.0f/255.0f, 23.0f/255.0f, 0.5f));
+	  	debugTex.Apply();
+
+		guiStylePts.normal.background = debugTex;
+	}
+
+    void showPlacar(){
+		GUI.Label(new Rect(22, Screen.height-2 - 22, 280, 22), SceneManager.GetActiveScene().name + ": Life: " + FremenManager.leto.jessica + " || Spice: " + FremenManager.leto.spice, guiStylePts);
+	}
 
 	void OnGUI ()
     {
@@ -21,36 +38,66 @@ public class GameManager : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "menu")
 		{
-			if (GUI.Button(new Rect(Screen.width / 2 - 60, Screen.height/2, 120, 53), "Arrakis"))
+			if (GUI.Button(new Rect(Screen.width / 2 - 60, Screen.height/2, 190, 53), "Arrakis (Play Game)"))
 			{
 				Invoke("changeScene", 0.5f);
 			}
-		}
-
-        if (SceneManager.GetActiveScene().name == "derrota" || SceneManager.GetActiveScene().name == "vitoria")
+		} 
+        else if (SceneManager.GetActiveScene().name == "derrota" || SceneManager.GetActiveScene().name == "vitoria")
 		{
-			if(GUI.Button(new Rect(Screen.width / 2 - 260, Screen.height/2, 120, 53), "Caladan"))
+			if(GUI.Button(new Rect(Screen.width / 2 - 360, Screen.height/2, 180, 53), "Caladan (Menu)"))
 			{
-				Invoke("changeScene", 0.5f);
+				restartGameManager();
 			}
 
-            if (GUI.Button(new Rect(Screen.width / 2 + 160, Screen.height/2, 180, 53), "Salusa Secundus"))
+            if (GUI.Button(new Rect(Screen.width / 2 + 160, Screen.height/2, 290, 53), "Salusa Secundus (Close Game)"))
 			{
 				Application.Quit();
 			}
-		}
+		}else{
+            showPlacar();
+        }
 	}
 
     public void perdeu(){
-        Invoke("loadPerdeu", 3.5f);
+        if(SceneManager.GetActiveScene().name == "fase10"){
+            Invoke("loadPerdeu", 1.5f);
+        }else{
+            Invoke("reloadSceneCheckpoint", 2.5f);
+        }
     }
 
+    private void reloadSceneCheckpoint(){
+        FremenManager.resetPontuacoes();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
     public void loadPerdeu(){
         SceneManager.LoadScene("derrota");
     }
 
     public void venceu(){
-        Invoke("loadVenceu", 1.5f);
+        if(SceneManager.GetActiveScene().name == "fase10"){
+            Invoke("loadVenceu", 1.5f);
+        }else{
+            Invoke("changeScene", 1.0f);
+        }
+    }
+
+    public bool faseComplete(){
+        return shaihulud && sardaukars.Length == 0;
+    }
+
+    public bool morto(){
+        return (FremenManager.leto.jessica - 1) == 0;
+    }
+
+    public void ferido(){
+        FremenManager.leto.jessica -= 1;
+    }
+
+    public void prescienciaDeCura(){
+        FremenManager.leto.spice += 1;
+        FremenManager.leto.jessica += 1;
     }
 
     public void loadVenceu(){
@@ -58,6 +105,7 @@ public class GameManager : MonoBehaviour
     }
 
     private void restartGameManager(){
+        FremenManager.resetPontuacoes();
 		Invoke("changeScene", 0.5f);
 	}
 
@@ -78,11 +126,21 @@ public class GameManager : MonoBehaviour
         fases.Add("menu", "fase1");
         fases.Add("derrota", "menu");
         fases.Add("vitoria", "menu");
+        fases.Add("fase1", "fase2");
+        fases.Add("fase2", "fase3");
+        fases.Add("fase3", "fase4");
+        fases.Add("fase4", "fase5");
+        fases.Add("fase5", "fase6");
+        fases.Add("fase6", "fase7");
+        fases.Add("fase7", "fase8");
+        fases.Add("fase8", "fase9");
+        fases.Add("fase9", "fase10");
 
         spice = GameObject.FindGameObjectWithTag("melange");
         shield = GameObject.FindGameObjectWithTag("shield");
 		waterLife = GameObject.FindGameObjectWithTag("water");
 
+        setPtsStyle();
         searchBladesOfEmperor();
     }
 

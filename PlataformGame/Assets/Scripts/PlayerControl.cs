@@ -22,15 +22,18 @@ public class PlayerControl : MonoBehaviour
   void OnCollisionEnter2D(Collision2D coll) {
 	GameManager gameManager = FindObjectOfType<GameManager>();
 
-    if(coll.collider.CompareTag("emperorsBlade"))
+    if(coll.collider.CompareTag("emperorsBlade") && gameManager.morto())
     {
+		gameManager.ferido();
 		gameManager.perdeu();
 
 		var psc = transform.position;
 		Instantiate(paulDefetead, psc, Quaternion.identity);
 		Destroy(gameObject);
 
-    }
+    }else if(coll.collider.CompareTag("emperorsBlade") && !gameManager.morto()){
+		gameManager.ferido();
+	}
 	// else if(coll.collider.CompareTag("melange")){
 		// gameManager.hit();
 		// animator.SetBool("correndo", false);
