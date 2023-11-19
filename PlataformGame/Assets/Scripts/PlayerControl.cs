@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,6 +19,8 @@ public class PlayerControl : MonoBehaviour
   public GameObject negDagacris;
   public GameObject paulDefetead;
   private Animator animator;
+//   private float lastPosY = 0.0f;
+  private bool floatingCondition = false;
 
   void OnCollisionEnter2D(Collision2D coll) {
 	GameManager gameManager = FindObjectOfType<GameManager>();
@@ -33,7 +36,12 @@ public class PlayerControl : MonoBehaviour
 
     }else if(coll.collider.CompareTag("emperorsBlade") && !gameManager.morto()){
 		gameManager.ferido();
+	}else if(coll.collider.gameObject.name == "colider"){
+		floatingCondition = false;
 	}
+	// else if(coll.collider.gameObject.tag == "limit"){
+	// 	floatingCondition = false;
+	// }
 	// else if(coll.collider.CompareTag("melange")){
 		// gameManager.hit();
 		// animator.SetBool("correndo", false);
@@ -47,12 +55,19 @@ public class PlayerControl : MonoBehaviour
 	// }
   }
 
+	void OnCollisionExit2D(Collision2D coll) {
+		if(coll.collider.gameObject.name == "colider"){
+			floatingCondition = true;
+		}
+	}
+
   void Start()
   {
     rb2d = GetComponent<Rigidbody2D>();   
 	animator = GetComponent<Animator>();
 	animator.SetBool("morreu", false);
 	boundY = 4.0f; 
+	// lastPosY = transform.position.y;
   }
 
   void Update()
@@ -89,18 +104,30 @@ public class PlayerControl : MonoBehaviour
 	}
 	else if(Input.GetKey(jump)){
 		vel.y = speed*1.1f;
+		
+		floatingCondition = true;
 
 		animator.SetBool("correndo", false);
 		animator.SetBool("pulando", true);
 		animator.SetBool("parado", false);
 	}
 	else {
-		vel.y = -(speed/4);
+		vel.y = -(speed/3);
 		vel.x = 0;
 
+		// bool isFalling;
+
+		// if((Math.Abs(lastPosY) - Math.Abs(transform.position.y)) > 0.1f){
+		// 	isFalling = true;
+		// }else{
+		// 	isFalling = false;
+		// }
+
 		animator.SetBool("correndo", false);
-		animator.SetBool("pulando", false);
-		animator.SetBool("parado", true);
+		animator.SetBool("pulando", floatingCondition);
+		animator.SetBool("parado", !floatingCondition);
+
+		// lastPosY = transform.position.y;
 	}
 
 	rb2d.velocity = vel;
@@ -110,8 +137,12 @@ public class PlayerControl : MonoBehaviour
 		pos.y = boundY;
 	}
 	else if (pos.y < -boundY) {
+		floatingCondition = false;
 		pos.y = -boundY;
 	}
+	// else if((boundY + 0.5f) < pos.y && pos.y < -(boundY + 0.5f)){
+	// 	floatingCondition = true;
+	// }
 
 	if (pos.y > boundX) {
 		pos.y = boundX;

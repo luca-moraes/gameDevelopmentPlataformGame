@@ -20,14 +20,14 @@ public class GameManager : MonoBehaviour
 		guiStylePts.normal.textColor = new Color(237.0f/255.0f, 145.0f/255.0f, 33.0f/255.0f, 1.0f);
 
 		Texture2D debugTex = new Texture2D(1,1);
-	  	debugTex.SetPixel(0,0, new Color(195.0f/255.0f, 88.0f/255.0f, 23.0f/255.0f, 0.5f));
+	  	debugTex.SetPixel(0,0, new Color(31.0f/255.0f, 21.0f/255.0f, 14.0f/255.0f, 0.98f));
 	  	debugTex.Apply();
 
 		guiStylePts.normal.background = debugTex;
 	}
 
     void showPlacar(){
-		GUI.Label(new Rect(22, Screen.height-2 - 22, 280, 22), SceneManager.GetActiveScene().name + ": Life: " + FremenManager.leto.jessica + " || Spice: " + FremenManager.leto.spice, guiStylePts);
+		GUI.Label(new Rect(22, Screen.height-2 - 22, 305, 22), SceneManager.GetActiveScene().name + ": Life: " + FremenManager.leto.jessica + " || Spice: " + FremenManager.leto.spice, guiStylePts);
 	}
 
 	void OnGUI ()
@@ -56,6 +56,12 @@ public class GameManager : MonoBehaviour
 			}
 		}else{
             showPlacar();
+
+            if(GUI.Button(new Rect(Screen.width - 150, Screen.height - 26, 140, 22), "Restart Fase"))
+			{
+                Invoke("changeScene", 1.0f);
+                // reloadSceneCheckpoint();	
+			}
         }
 	}
 
@@ -68,7 +74,7 @@ public class GameManager : MonoBehaviour
     }
 
     private void reloadSceneCheckpoint(){
-        FremenManager.resetPontuacoes();
+        FremenManager.resetFase();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     public void loadPerdeu(){
@@ -105,7 +111,7 @@ public class GameManager : MonoBehaviour
     }
 
     private void restartGameManager(){
-        FremenManager.resetPontuacoes();
+        FremenManager.resetAll();
 		Invoke("changeScene", 0.5f);
 	}
 
