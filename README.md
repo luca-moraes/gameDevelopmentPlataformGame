@@ -15,7 +15,7 @@ Todas as fases possuem 3 objetivos para serem concluídas, sendo eles:
 
 2. Coletar a especiaria Mélange.
 
-3. Obter a água da vida após o escudo que a protege ser removido ao cumprir os dois itens anteriores.
+3. Obter a Água da Vida após o Escudo que a protege ser removido ao cumprir os dois itens anteriores.
 
 | **Inimigo Sardaukar** | **Especiaria Mélange** |
 | --- | --- |
