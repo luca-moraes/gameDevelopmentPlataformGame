@@ -144,10 +144,10 @@ A Classe de atributos teve o nome alterado em referência a Guilda Espacial,<br>
 
 # Ya Hya Chouhada Muad'Dib!
 
-<div style="text-align: center;">
+<center>
     
 ![Kwisatz Haderach](imagens/muaddib.jpg)
 
-</div>
+</center>
 
 ---
