@@ -5,7 +5,7 @@ No caso do presente projeto, o jogo foi desenvolvido tendo em mente a temática 
 
 Espero que esse pequeno trabalho possa ser considerado uma singela homenagem a Frank Herbert e sua tão grandiosa obra.
 
-_Father, the sleeper has awakened!_
+~ _Father, the sleeper has awakened!_ ~
 
 
 # Objetivos das fases:
@@ -144,10 +144,6 @@ A Classe de atributos teve o nome alterado em referência a Guilda Espacial,<br>
 
 # Ya Hya Chouhada Muad'Dib!
 
-<center>
-    
 ![Kwisatz Haderach](imagens/muaddib.jpg)
-
-</center>
 
 ---
