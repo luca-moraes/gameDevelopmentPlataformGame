@@ -72,7 +72,7 @@ O jogo possui dez fases, a estrutura geral é basicamente a mesma, porém, as pl
 
 | **Menu do jogo** |
 | --- |
-| <img src="https://github.com/luca-moraes/gameDevelopmentPlataformGame/blob/main/imagens/menu.png" alt="Escudo Bolha" width="925" height="700"> |
+| <img src="https://github.com/luca-moraes/gameDevelopmentPlataformGame/blob/main/imagens/menu.png" alt="Escudo Bolha" width="925" height="600"> |
 
 # Sprites do jogo:
 O jogo utilizou sprites _open source_ prontos, fornecidos gratuitamente no site [craftpix.net](https://craftpix.net/). A movimentação do personagem foi desenvolvida em partes utilizando um _controller_ de animação da _Unity_ e, em alguns detalhes, no código do _script_ que controla a movimentação do personagem, como pode ser visto nas imagens abaixo:
@@ -95,7 +95,7 @@ O jogo utilizou sprites _open source_ prontos, fornecidos gratuitamente no site 
 
 
 # Controle do jogo: 
-O jogo possui _scripts_ para movimentação da câmera, que segue o movimento do personagem nas plataformas. Um _GameManager_ faz o controle central do jogo, enquanto um _ScoreManager_ cuida de maneira estática da pontuação geral das fases (a classe _static_ funcionou melhor que o padrão _singleton_ no caso do jogo). Existe uma classe para os atributos do personagem e classes para gerenciar a colisão com os itens, todas visíveis nas imagens abaixo:
+O jogo possui _scripts_ para movimentação da câmera, que segue o movimento do personagem nas plataformas. Um _GameManager_ faz o controle central do jogo, enquanto um _ScoreManager_ cuida, de maneira estática, da pontuação geral das fases (a classe _static_ funcionou melhor que o padrão _singleton_ no caso do jogo). Existe uma classe para os atributos do personagem e classes para gerenciar a colisão com os itens, todas visíveis nas imagens abaixo:
 
 | **_Script_ da câmera** |
 | --- |
