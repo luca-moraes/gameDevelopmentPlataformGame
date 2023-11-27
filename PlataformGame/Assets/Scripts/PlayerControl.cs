@@ -103,7 +103,7 @@ public class PlayerControl : MonoBehaviour
 		animator.SetBool("parado", false);
 	}
 	else if(Input.GetKey(jump)){
-		vel.y = speed*1.1f;
+		vel.y = speed*1.06f;
 		
 		floatingCondition = true;
 
@@ -112,7 +112,7 @@ public class PlayerControl : MonoBehaviour
 		animator.SetBool("parado", false);
 	}
 	else {
-		vel.y = -(speed/3);
+		vel.y = -(speed/2);
 		vel.x = 0;
 
 		// bool isFalling;

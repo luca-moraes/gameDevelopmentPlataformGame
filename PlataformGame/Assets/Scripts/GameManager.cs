@@ -42,6 +42,11 @@ public class GameManager : MonoBehaviour
 			{
 				Invoke("changeScene", 0.5f);
 			}
+
+            if (GUI.Button(new Rect(22, Screen.height - 60, 290, 53), "Salusa Secundus (Close Game)"))
+			{
+				Application.Quit();
+			}
 		} 
         else if (SceneManager.GetActiveScene().name == "derrota" || SceneManager.GetActiveScene().name == "vitoria")
 		{

@@ -26,7 +26,11 @@ public class EnemyPatrol : MonoBehaviour
       psc.y -= 0.25f;
       Instantiate(deathAnimation, psc, Quaternion.identity);
       Destroy(gameObject);
-    } 
+    }
+    // else if(coll.collider.CompareTag("emperorsBlade")){
+    //   Physics2D.IgnoreCollision(coll.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+    //   Debug.Log("ignore");
+    // }
   }
 
   public void Awake()
@@ -44,10 +48,14 @@ public class EnemyPatrol : MonoBehaviour
 
     if(_moveRight){
 			psc.x += 0.5f;
-			Instantiate(sardaukarBlade, psc, Quaternion.identity);
+      Instantiate(sardaukarBlade, psc, Quaternion.identity);
+			// var blade = Instantiate(sardaukarBlade, psc, Quaternion.identity) as GameObject;
+      // Physics2D.IgnoreCollision(blade.GetComponent<Collider2D>(), GetComponent<Collider2D>());
 		}else{
 			psc.x -= 0.5f;
-			Instantiate(negSardaukarBlade, psc, Quaternion.identity);
+      Instantiate(negSardaukarBlade, psc, Quaternion.identity);
+			// var negBlade = Instantiate(negSardaukarBlade, psc, Quaternion.identity) as GameObject;
+      // Physics2D.IgnoreCollision(negBlade.GetComponent<Collider2D>(), GetComponent<Collider2D>());
 		}
 
     shoot = true;
