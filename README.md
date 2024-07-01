@@ -1,9 +1,9 @@
 # Plataform Game: Plataformas de Duna
-A atividade tinha como objetivo o desenvolvimento de um jogo de plataforma. Além das plataformas, conceitos como movimentação de câmeras deveriam ser utilizados para a imersão do jogador.
+The activity aimed to develop a platform game. In addition to platforms, concepts such as camera movement should be used to immerse the player.
 
-No caso do presente projeto, o jogo foi desenvolvido tendo em mente a temática da série de livros Duna, que tem como autor o escritor Frank Herbert. A temática foi usada apenas para propósitos de aprendizado e diversão pessoal. Todos os direitos originais da obra pertencem ao autor e às organizações responsáveis que possuem direitos autorais da série Duna.
+In the case of this project, the game was developed with the theme of the Dune book series in mind, authored by writer Frank Herbert. The theme was used for personal learning and enjoyment purposes only. All original rights to the work belong to the author and the responsible organizations that own the copyright of the Dune series.
 
-Espero que esse pequeno trabalho possa ser considerado uma singela homenagem a Frank Herbert e sua tão grandiosa obra.
+I hope that this small work can be considered a simple tribute to Frank Herbert and his great masterpiece.
 
 ~ _Father, the sleeper has awakened!_ ~
 
