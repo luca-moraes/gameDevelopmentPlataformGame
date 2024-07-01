@@ -5,7 +5,7 @@ In the case of this project, the game was developed with the theme of the Dune b
 
 I hope that this small work can be considered a simple tribute to Frank Herbert and his great masterpiece.
 
-~ _Father, the sleeper has awakened!_ ~
+~ _The spice must flow!_ ~
 
 
 # Objetivos das fases:
@@ -145,5 +145,7 @@ A Classe de atributos teve o nome alterado em referência a Guilda Espacial,<br>
 # Ya Hya Chouhada Muad'Dib!
 
 ![Kwisatz Haderach](imagens/muaddib.jpg)
+
+~ _Father, the sleeper has awakened!_ ~
 
 ---
